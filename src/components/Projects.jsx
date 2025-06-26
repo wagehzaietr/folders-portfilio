@@ -17,23 +17,12 @@ function Projects ({
     <div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
         {projectData.map(project => (
-          <Tilt
+          <div
             key={project.id}
-            options={{
-              reverse: false,
-              max: 8,
-              perspective: 1000,
-              scale: 1,
-              speed: 300,
-              transition: true,
-              axis: null,
-              reset: true,
-              easing: 'cubic-bezier(.03,.98,.52,.99)'
-            }}
           >
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ opacity: 1 }}
+              whileTap={{ scale: 0.95 }}
               className={`relative border rounded-xl drop-shadow-lg backdrop-blur-md p-4 cursor-pointer transition-all ${theme.card} ${theme.border}`}
               onClick={() => {
                 setSelectedProject(project)
@@ -72,7 +61,7 @@ function Projects ({
                 ))}
               </div>
             </motion.div>
-          </Tilt>
+          </div>
         ))}
       </div>
     </div>

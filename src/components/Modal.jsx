@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import useSound from 'use-sound'
-import {Tilt} from 'react-tilt'
 import { projectData } from '../projectData/projectData'
 import { skillsData } from '../projectData/projectData'
 import {
@@ -14,7 +13,6 @@ import {
   FaCode,
   FaUser,
   FaPaperPlane,
-  FaHeart
 } from 'react-icons/fa'
 import {
   SiReact,
@@ -27,6 +25,7 @@ import {
 } from 'react-icons/si'
 import { lazy } from 'react'
 
+
 const Projects = lazy (() => import('./Projects'))
 
 const Modal = ({ isdark, isOpen, onClose, initialPage = 'projects' }) => {
@@ -35,28 +34,20 @@ const Modal = ({ isdark, isOpen, onClose, initialPage = 'projects' }) => {
   const [clickSound] = useSound('/pop.ogg', { volume: 0.3 })
   const [selectedProject, setSelectedProject] = useState(null)
   const [currentPage, setCurrentPage] = useState(initialPage)
-  const [likes, setLikes] = useState({})
-  const isMobile = window.innerWidth < 768;
 
   // Page transition animations
   const pageVariants = {
     initial: {
       opacity: 0,
-      x: currentPage === 'projects' ? -50 : 50
     },
     animate: {
       opacity: 1,
       x: 0,
       transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 30
       }
     },
     exit: {
       opacity: 0,
-      x: currentPage === 'projects' ? -50 : 50,
-      transition: { duration: 0.2 }
     }
   }
 

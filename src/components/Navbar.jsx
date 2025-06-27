@@ -1,16 +1,14 @@
 import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
-import { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import useSound from 'use-sound';
 import clicksound from '/clicksound.mp3';
-import pop from '/pop.ogg';
-import axios from 'axios';
-import { useEffect } from 'react'
 
 
-function Navbar({ dark, handleClick, handleModal }) {
+
+
+function Navbar({ dark, handleClick, }) {
   const [play] = useSound(clicksound, { volume: 0.3 });
-  const [playpop] = useSound(pop, { volume: 0.3 });
   
 
 
@@ -47,25 +45,6 @@ function Navbar({ dark, handleClick, handleModal }) {
               )}
             </button>
             
-            <button 
-              onClick={() => {
-                handleModal();
-                playpop();
-              }}
-              className="md:hidden p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-              aria-label="Open menu"
-            >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                strokeWidth={1.5} 
-                stroke="currentColor" 
-                className="w-6 h-6 dark:text-white"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
-              </svg>
-            </button>
           </div>
         </div>
       </nav>

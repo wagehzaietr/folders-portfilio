@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 
 import { useState } from 'react'
 import { useEffect } from 'react'
+import { useCallback } from 'react'
 
 
 function App () {
@@ -33,20 +34,20 @@ function App () {
     }
   }, [])
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     setIsdark(!isdark)
-  }
+  })
 
-  const handleModal = () => {
+  const handleModal = useCallback(() => {
     setShowModal(!showModal)
-  }
+  })
 
   return (
     <div className={isdark ? 'dark' : ''}>
       <Navbar dark={isdark} handleClick={handleClick} handleModal={handleModal} />
       <section>
         <Routes>
-          <Route path='/' element={<MainLayout showModal={showModal} handleModal={handleModal} isdark={isdark} />} />
+          <Route path='/' element={<MainLayout showModal={showModal}  handleClick={handleClick}  handleModal={handleModal} isdark={isdark} />} />
         </Routes>
       </section>
     </div>

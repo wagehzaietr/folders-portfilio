@@ -6,7 +6,7 @@ import Hero from '../components/Hero'
 import Skills from '../components/Skills'
 import Footer from '../components/Footer'
 
-function MainLayout ({ showModal, handleModal,isdark }) {
+function MainLayout ({ showModal, handleModal,isdark ,setisdark, handleClick }) {
   const [play] = useSound(pop, { volume: 0.6 })
 
   return (
@@ -20,7 +20,7 @@ function MainLayout ({ showModal, handleModal,isdark }) {
       {/* footer Section */}
       <Footer />
 
-      <Modal isOpen={showModal} onClose={handleModal} isdark={isdark}  />
+      <Modal isOpen={showModal}  onClose={handleModal}  handleClick={handleClick} setIsdark={setisdark} isdark={isdark}  />
     </div>
   )
 }
